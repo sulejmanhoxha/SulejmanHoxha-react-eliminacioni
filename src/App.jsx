@@ -1,7 +1,11 @@
+import { DataProvider } from "./context/DataContext.jsx";
+
 function App() {
 	return (
 		<>
-			<p>Hello World</p>
+			<DataProvider>
+				<p>Hello World</p>
+			</DataProvider>
 		</>
 	);
 }
