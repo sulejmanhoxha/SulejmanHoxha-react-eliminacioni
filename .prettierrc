@@ -1,0 +1,13 @@
+{
+	"useTabs": true,
+	"tabWidth": 4,
+	"importOrder": [
+		"^./context/(.*)$",
+		"^./api/(.*)$",
+		"^./components/(.*)$",
+		"^./pages/(.*)$",
+		"^[./]"
+	],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true
+}

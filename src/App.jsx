@@ -1,11 +1,13 @@
-import { DataProvider } from "./context/DataContext.jsx";
 import { Route, Routes } from "react-router-dom";
+
+import { DataProvider } from "./context/DataContext.jsx";
 
 import AddProduct from "./pages/AddProduct.jsx";
 import EditProduct from "./pages/EditProduct.jsx";
 import Home from "./pages/Home.jsx";
 import Missing from "./pages/Missing.jsx";
 import ViewProduct from "./pages/ViewProduct.jsx";
+
 function App() {
 	return (
 		<>
