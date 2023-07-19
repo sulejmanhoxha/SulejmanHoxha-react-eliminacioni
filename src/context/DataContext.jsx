@@ -9,12 +9,15 @@ const DataContext = createContext({});
 export const DataProvider = ({ children }) => {
 	const [items, setItems] = useState([]);
 
+	const [fetchError, setFetchError] = useState(null);
+	const [isLoading, setIsLoading] = useState(true);
+
 	useEffect(() => {
 		const fetchProducts = async () => {
+			setIsLoading(true);
 			try {
 				const response = await api.get("/products");
-				setItems(response.data);
-				console.log(items);
+				setItems(response.data.products);
 			} catch (err) {
 				// if this is not in the 200 response range
 				if (err.response) {
@@ -24,6 +27,12 @@ export const DataProvider = ({ children }) => {
 				} else {
 					console.log(`Error: ${err.message}`);
 				}
+				setFetchError(`Error: ${err.message}`);
+			} finally {
+				// Simulate a 2-second delay before setting isLoading to false
+				setTimeout(() => {
+					setIsLoading(false);
+				}, 2000);
 			}
 		};
 		fetchProducts();
@@ -34,6 +43,10 @@ export const DataProvider = ({ children }) => {
 			value={{
 				items,
 				setItems,
+				fetchError,
+				setFetchError,
+				isLoading,
+				setIsLoading,
 			}}
 		>
 			{children}
