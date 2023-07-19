@@ -20,7 +20,7 @@ const Navbar = () => {
 					<span className="navbar-toggler-icon" />
 				</button>
 				<div
-					className="collapse navbar-collapse"
+					className="collapse navbar-collapse d-lg-flex justify-content-end"
 					id="navbarNavAltMarkup"
 				>
 					<div className="navbar-nav">
