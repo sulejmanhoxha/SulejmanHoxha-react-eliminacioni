@@ -6,7 +6,7 @@ const Navbar = () => {
 		<nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
 			<div className="container">
 				<Link className="navbar-brand" to="/">
-					Phone Store
+					Product Store
 				</Link>
 				<button
 					className="navbar-toggler"
