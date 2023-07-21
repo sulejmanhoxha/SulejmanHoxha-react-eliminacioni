@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createContext } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import api from "../api/products.js";
 
@@ -11,6 +12,8 @@ export const DataProvider = ({ children }) => {
 
 	const [fetchError, setFetchError] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const fetchProducts = async () => {
@@ -40,6 +43,20 @@ export const DataProvider = ({ children }) => {
 		fetchProducts();
 	}, []);
 
+	const handleDelete = async (item) => {
+		try {
+			if (!(item.id > 100)) {
+				await api.delete(`/products/${item.id}`);
+			}
+
+			const newItemList = items.filter((i) => i.id !== parseInt(item.id));
+			setItems(newItemList);
+			navigate("/");
+		} catch (err) {
+			console.log(`Error: ${err.message}`);
+		}
+	};
+
 	return (
 		<DataContext.Provider
 			value={{
@@ -49,6 +66,7 @@ export const DataProvider = ({ children }) => {
 				setFetchError,
 				isLoading,
 				setIsLoading,
+				handleDelete,
 			}}
 		>
 			{children}

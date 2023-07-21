@@ -5,6 +5,7 @@ import DataContext from "../context/DataContext";
 
 const ProductItem = ({ item }) => {
 	const { id } = useParams();
+	const { handleDelete } = useContext(DataContext);
 
 	return (
 		<div className="col my-3">
@@ -39,7 +40,12 @@ const ProductItem = ({ item }) => {
 						>
 							Edit Product
 						</Link>
-						<Link className="btn btn-danger btn-sm text-nowrap">
+						<Link
+							onClick={() => {
+								handleDelete(item);
+							}}
+							className="btn btn-danger btn-sm text-nowrap"
+						>
 							Delete
 						</Link>
 					</div>
