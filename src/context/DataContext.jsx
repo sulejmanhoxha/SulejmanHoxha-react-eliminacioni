@@ -20,9 +20,7 @@ export const DataProvider = ({ children }) => {
 			setIsLoading(true);
 			try {
 				const response = await api.get("/products");
-				setItems(
-					[...response.data.products].sort((a, b) => b.id - a.id)
-				);
+				setItems(response.data.products);
 			} catch (err) {
 				// if this is not in the 200 response range
 				if (err.response) {
@@ -34,7 +32,7 @@ export const DataProvider = ({ children }) => {
 				}
 				setFetchError(`Error: ${err.message}`);
 			} finally {
-				// Simulate a 2-second delay before setting isLoading to false
+				// Simulate a 0.5-second delay before setting isLoading to false
 				setTimeout(() => {
 					setIsLoading(false);
 				}, 500);
