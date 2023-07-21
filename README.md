@@ -1,4 +1,7 @@
-# Pesmarica2 frontend
+# Cortex Eliminacioni Test
+
+
+## The project is published and you can view it [here.](https://sprightly-trifle-f13963.netlify.app/)
 
 This project is a React application built with Vite and Bootstrap CSS.
 
@@ -8,7 +11,6 @@ For more information about Vite, please visit [Vite website](https://vitejs.dev/
 
 For more information about Bootstrap CSS, please visit the [Bootstrap CSS website](https://getbootstrap.com/).
 
-## The project is published and you can view it [here.](https://sprightly-trifle-f13963.netlify.app/)
 
 ## Getting Started
 
